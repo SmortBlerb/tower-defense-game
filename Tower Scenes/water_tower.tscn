@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfbobc73lfnde"]
+
+[ext_resource type="Script" uid="uid://dyc7cw4wnnlmb" path="res://Tower Scripts/water_tower.gd" id="1_tdey7"]
+[ext_resource type="Texture2D" uid="uid://bn4ak65a2uu1x" path="res://Sprites/Tower Sprites/Water Tower.png" id="2_wesmh"]
+[ext_resource type="Texture2D" uid="uid://cb1omny6h1iik" path="res://Sprites/Tower Sprites/Water Tower Spout.png" id="3_ngs74"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stebd"]
+radius = 59.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdey7"]
+radius = 20.0
+
+[node name="Water Tower" type="Node2D"]
+script = ExtResource("1_tdey7")
+radius = 65.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5707964
+texture = ExtResource("2_wesmh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(18, 6)
+rotation = -1.5707964
+texture = ExtResource("3_ngs74")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_stebd")
+
+[node name="Tower Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower Area"]
+shape = SubResource("CircleShape2D_tdey7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Tower Area" to="." method="_on_tower_area_mouse_entered"]
+[connection signal="mouse_exited" from="Tower Area" to="." method="_on_tower_area_mouse_exited"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://doxbv5ytqg77x"]
+
+[ext_resource type="PackedScene" uid="uid://bi4k1iexdw4df" path="res://path.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://h6jkqu0avtu1" path="res://Tower Scenes/tower_manager.tscn" id="2_tlwt5"]
+[ext_resource type="Script" uid="uid://yq0l5xm648ld" path="res://tower_selection_ui.gd" id="3_tlwt5"]
+
+[node name="World" type="Node2D"]
+
+[node name="Path" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(0, 93)
+
+[node name="Towers" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tower Manager" parent="CanvasLayer" instance=ExtResource("2_tlwt5")]
+offset_left = 591.0
+offset_right = 639.0
+
+[node name="Tower Selection UI" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+script = ExtResource("3_tlwt5")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Tower Selection UI"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Special" type="Button" parent="CanvasLayer/Tower Selection UI/CenterContainer"]
+layout_mode = 2
+text = "Special"
+
+[node name="Upgrade Path 1" type="Button" parent="CanvasLayer/Tower Selection UI"]
+layout_mode = 2
+text = "Upgrade 1"
+
+[node name="Upgrade Path 2" type="Button" parent="CanvasLayer/Tower Selection UI"]
+layout_mode = 2
+text = "Upgrade 2"
+
+[node name="Delete Tower" type="Button" parent="CanvasLayer/Tower Selection UI"]
+layout_mode = 2
+text = "X"
+
+[node name="Next Wave" type="Button" parent="CanvasLayer"]
+offset_left = 587.0
+offset_top = 267.0
+offset_right = 638.0
+offset_bottom = 321.0
+text = "Next
+Wave"
+
+[connection signal="pressed" from="CanvasLayer/Tower Selection UI/CenterContainer/Special" to="CanvasLayer/Tower Selection UI" method="_on_special_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tower Selection UI/Upgrade Path 1" to="CanvasLayer/Tower Selection UI" method="_on_upgrade_path_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tower Selection UI/Upgrade Path 2" to="CanvasLayer/Tower Selection UI" method="_on_upgrade_path_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Tower Selection UI/Delete Tower" to="CanvasLayer/Tower Selection UI" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Next Wave" to="Path" method="_on_next_wave_pressed"]

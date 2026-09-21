@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://doxbv5ytqg77x"]
+
+[ext_resource type="PackedScene" uid="uid://bi4k1iexdw4df" path="res://path.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://dfbobc73lfnde" path="res://Base Scenes/tower.tscn" id="2_tlwt5"]
+
+[node name="World" type="Node2D"]
+
+[node name="Path" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(0, 93)
+
+[node name="Tower" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(296, 197)

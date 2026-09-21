@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://h6jkqu0avtu1"]
+
+[ext_resource type="Texture2D" uid="uid://djiu2dp20wnvn" path="res://Sprites/Temp Tower Sprites/Temp Water Tower.png" id="1_87jc0"]
+[ext_resource type="Script" uid="uid://42ekri7vbevr" path="res://Tower Scripts/tower_manager.gd" id="1_i2qwi"]
+[ext_resource type="Texture2D" uid="uid://bke4xejewf086" path="res://Sprites/Temp Tower Sprites/Temp Fire Tower.png" id="2_i2qwi"]
+[ext_resource type="Texture2D" uid="uid://b6f1y4bqsnsmi" path="res://Sprites/Temp Tower Sprites/Temp Electric Tower.png" id="3_1nye8"]
+[ext_resource type="Texture2D" uid="uid://bycc6rnhdxui3" path="res://Sprites/Temp Tower Sprites/Temp Rooting Tower.png" id="4_srmf0"]
+[ext_resource type="Texture2D" uid="uid://bs4kp4dlkp305" path="res://Sprites/Temp Tower Sprites/Temp Bleed Tower.png" id="5_pmp5i"]
+
+[node name="Tower Manager" type="GridContainer"]
+offset_right = 48.0
+offset_bottom = 256.0
+script = ExtResource("1_i2qwi")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("1_87jc0")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("2_i2qwi")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("3_1nye8")
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("4_srmf0")
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("5_pmp5i")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]

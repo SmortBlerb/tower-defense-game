@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxvs8t6fbwolw"]
+
+[ext_resource type="Script" uid="uid://crflnrder0oqg" path="res://Base Scenes/statuses.gd" id="1_3itfv"]
+
+[node name="Status" type="Node2D"]
+script = ExtResource("1_3itfv")

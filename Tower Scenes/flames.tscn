@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0srtrawx21hi"]
+
+[ext_resource type="Script" uid="uid://dl2qcp4kxerja" path="res://Tower Scripts/flames.gd" id="1_p4drp"]
+[ext_resource type="Texture2D" uid="uid://ditpygdrc0gex" path="res://Sprites/Tower Sprites/Fire Tower Flames.png" id="2_p4drp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5l8fu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryqqn"]
+size = Vector2(30.065178, 17.877018)
+
+[node name="Flames" type="Area2D"]
+script = ExtResource("1_p4drp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_5l8fu")
+position = Vector2(8.59005, 0)
+rotation = -1.5707964
+texture = ExtResource("2_p4drp")
+offset = Vector2(0, 31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 0)
+scale = Vector2(0.9999998, 0.9999999)
+shape = SubResource("RectangleShape2D_ryqqn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

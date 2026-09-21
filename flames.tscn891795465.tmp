@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0srtrawx21hi"]
+
+[ext_resource type="Script" uid="uid://dl2qcp4kxerja" path="res://flames.gd" id="1_5l8fu"]
+[ext_resource type="Texture2D" uid="uid://bu734up0htvac" path="res://proto grapple point.png" id="1_kg7va"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5l8fu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryqqn"]
+size = Vector2(250, 120)
+
+[node name="Flames" type="Area2D"]
+script = ExtResource("1_5l8fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_5l8fu")
+position = Vector2(118.719925, 1.9073486e-06)
+scale = Vector2(15.660007, 5.7499995)
+texture = ExtResource("1_kg7va")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(121, 0)
+shape = SubResource("RectangleShape2D_ryqqn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://doxbv5ytqg77x"]
+
+[ext_resource type="PackedScene" uid="uid://bi4k1iexdw4df" path="res://path.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://h6jkqu0avtu1" path="res://Tower Scenes/tower_manager.tscn" id="2_tlwt5"]
+[ext_resource type="Script" uid="uid://yq0l5xm648ld" path="res://tower_selection_ui.gd" id="3_tlwt5"]
+
+[node name="World" type="Node2D"]
+
+[node name="Path" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(0, 93)
+
+[node name="Towers" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tower Manager" parent="CanvasLayer" instance=ExtResource("2_tlwt5")]
+offset_left = 591.0
+offset_right = 639.0
+
+[node name="Tower Selection UI" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+script = ExtResource("3_tlwt5")
+
+[node name="Button" type="Button" parent="CanvasLayer/Tower Selection UI"]
+layout_mode = 2
+text = "X"

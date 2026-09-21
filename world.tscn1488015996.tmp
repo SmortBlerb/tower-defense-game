@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://doxbv5ytqg77x"]
+
+[ext_resource type="PackedScene" uid="uid://dfbobc73lfnde" path="res://tower.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://bi4k1iexdw4df" path="res://path.tscn" id="2_fj7yv"]
+
+[node name="World" type="Node2D"]
+
+[node name="Tower3" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(340, 432)
+fire_rate = 50
+inflict_status = 4
+
+[node name="Tower2" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(277, 433)
+fire_rate = 50
+
+[node name="Path" parent="." instance=ExtResource("2_fj7yv")]
+position = Vector2(-13, 334)

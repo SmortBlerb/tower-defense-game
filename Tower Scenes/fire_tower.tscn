@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0a8rurbhdy74"]
+
+[ext_resource type="Script" uid="uid://beunu52201lb0" path="res://Tower Scripts/fire_tower.gd" id="1_l7fo6"]
+[ext_resource type="Texture2D" uid="uid://chv254642inew" path="res://Sprites/Tower Sprites/Fire Tower.png" id="2_l7fo6"]
+[ext_resource type="Texture2D" uid="uid://cjg247cnfgwrx" path="res://Sprites/Tower Sprites/Fire Tower Nozzle.png" id="3_878jj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmto1"]
+radius = 64.12488
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_878jj"]
+radius = 20.0
+
+[node name="Fire Tower" type="Node2D"]
+script = ExtResource("1_l7fo6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 4.712389
+texture = ExtResource("2_l7fo6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(22.5, 0)
+rotation = 4.712389
+texture = ExtResource("3_878jj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_xmto1")
+
+[node name="Tower Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower Area"]
+shape = SubResource("CircleShape2D_878jj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Tower Area" to="." method="_on_tower_area_mouse_entered"]
+[connection signal="mouse_exited" from="Tower Area" to="." method="_on_tower_area_mouse_exited"]
